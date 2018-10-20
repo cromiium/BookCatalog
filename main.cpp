@@ -26,3 +26,19 @@ void init(){
 void save(){
 
 }
+
+void display(){
+
+}
+
+void addBook(){
+
+}
+
+void alterBook(){
+
+}
+
+void deleteBook(){
+
+}
