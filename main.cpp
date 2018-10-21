@@ -1,8 +1,10 @@
 #include <iostream>
 #include "Book.h"
+#include <string>
 using std::cout;
 using std::cin;
 using std::endl;
+using std::string;
 
 void init(); //Initializes application
 void save(); //Saves application
@@ -11,12 +13,16 @@ void addBook(); //Writes a book to file
 void alterBook(); //Changes book in a file
 void deleteBook(); //Deletes book from file
 void controls(); //Outputs main controls/options 
+void writeToFile(); //Writes book to file
 
 int main(){
+    
+    string str;
+    while(cin >> str){
+        controls();
+    }
 
-    controls();
-
-
+//TODO: Work on this loop. It needs the user to type something before it displays control
 
 return 0;
 }
@@ -35,6 +41,10 @@ void display(){
 }
 
 void addBook(){
+    char isReadConfirmation, isCorrectConfirmation, recreationConfirmation;
+    string myTitle, myAuthor, myGenre;
+    int myPageCount;
+    bool isRead;
     cout << "ADD A BOOK TO FILE:" << endl;
     cout << "\n"
             "Creating New Book:" << endl;
@@ -48,9 +58,26 @@ void addBook(){
     cout << "Enter Page Count:" << endl;
     cin >> myPageCount;
     cout << "Have you read it?(Y/n)" << endl;
-    cin >> IsRead;
-    cout << "Confirm that this is the correct information: " << endl;
-    newBook.displayAll;
+    cin >> isReadConfirmation;
+    if(isReadConfirmation == 'Y'){
+        isRead = 1;
+    }else{
+        isRead = 0;
+     }
+     Book newBook(myTitle, myAuthor, myGenre, myPageCount, isRead);
+    cout << "Confirm that this is the correct information:(Y/n)" << endl;
+    newBook.displayAll();
+    cin >> isCorrectConfirmation;
+    if(isCorrectConfirmation == 'Y'){
+        writeToFile();
+    }else{
+        cout << "Do you want to recreate the Book?(Y/n)" << endl;   
+        cin >> recreationConfirmation; 
+        if(recreationConfirmation == 'Y'){
+            addBook();
+        }else
+            return;
+    }
 }
 
 void alterBook(){
@@ -69,8 +96,7 @@ void controls(){
             "3) Add a Book to File\n"
             "4) Delete a Book from File\n"
             "5) Change details of a Book in file\n"
-            "6) Save File\n"
-            "7) Exit\n" << endl;
+            "6) Save File and Exit\n";
     
     cin >> myOption;
     switch(myOption){
@@ -88,4 +114,8 @@ void controls(){
                 break;
         case 7: return;
     }
+}
+
+void writeToFile(){
+
 }

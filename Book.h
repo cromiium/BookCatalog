@@ -6,7 +6,13 @@ using std::string;
 
 //Book class definition
 class Book{
-    public:
+     private:
+        string myTitle;
+        string myAuthor;
+        string myGenre;
+        int myPageCount;
+        bool isRead;
+   public:
         Book();
         Book(string myTitle, string myAuthor, string myGenre, int myPageCount, bool isRead);
 
@@ -25,13 +31,6 @@ class Book{
 
         //MISC. METHODS
         void displayAll();
-
-    private:
-        string myTitle;
-        string myAuthor;
-        string myGenre;
-        int myPageCount;
-        bool isRead;
 };
 
 
