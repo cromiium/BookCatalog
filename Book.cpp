@@ -1,6 +1,7 @@
 #include <iostream>
-#include "BookCatalog.h"
-
+#include "Book.h"
+using std::cout;
+using std::endl;
 
 //CONSTRUCTORS AND DESTRUCTORS
 Book::Book(){
@@ -22,34 +23,46 @@ Book::Book(string myTitle, string myAuthor, string myGenre, int myPageCount, boo
 }
 
 //GETTERS AND SETTERS
-string getTitle(){
+string Book::getTitle(){
     return this.myTitle;
 }
-string getAuthor(){
+string Book::getAuthor(){
     return this.myAuthor;
 }
-string getGenre(){
+string Book::getGenre(){
     return this.myGenre;
 }
-int getPageCount(){
+int Book::getPageCount(){
     return this.myPageCount;
 }
-bool getIsRead(){
+bool Book::getIsRead(){
     return this.isRead;
 }
 
-void setTitle(string myTitle){
+void Book::setTitle(string myTitle){
     this.myTitle = myTitle;
 }
-void setAuthor(string myAuthor){
+void Book::setAuthor(string myAuthor){
     this.myAuthor = myAuthor;
 }
-void setGenre(string myGenre){
+void Book::setGenre(string myGenre){
     this.myGenre = myGenre;
 }
-void setPageCount(int myPageCount){
+void Book::setPageCount(int myPageCount){
     this.myPageCount = myPageCount;
 }
-void setIsRead(bool isRead){
+void Book::setIsRead(bool isRead){
     this.isRead = isRead
+}
+
+void Book::displayAll(){
+    cout << this.myTitle << endl;
+    cout << this.myAuthor << endl;
+    cout << this.myGenre << endl;
+    cout << this.myPageCount << endl;
+    if(this.isRead){
+        cout << "Read" << endl;
+    }else{
+        cout << "Not Read" << endl;
+    }
 }

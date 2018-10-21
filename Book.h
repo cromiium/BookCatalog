@@ -2,7 +2,7 @@
 #define BOOK_H
 
 #include <string>
-
+using std::string;
 
 //Book class definition
 class Book{
@@ -23,6 +23,8 @@ class Book{
         void setPageCount(int myPageCount);
         void setIsRead(bool isRead);
 
+        //MISC. METHODS
+        void displayAll();
 
     private:
         string myTitle;
